@@ -145,9 +145,17 @@ pretty sweet.`,
 `What did the fish say when he hit the wall? Dam.`,
 `Is this pool safe for diving? It deep ends.`,
 `If you see a crime happen at the Apple store, what does it make you? An iWitness.`]
-// get random index value
-const randomIndex = Math.floor(Math.random() * arr.length);
-// get random item
-const item = arr[randomIndex];
-document.getElementById("joke").innerHTML=item
+
+// Function to get a random joke
+function getRandomJoke() {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+  }
   
+  // Show a random joke on page load
+  document.getElementById("jokeTextArea").value = getRandomJoke();
+  
+  // Event listener to get a new joke when the button is clicked
+  document.getElementById("fetchJokeBtn").addEventListener("click", function() {
+    document.getElementById("jokeTextArea").value = getRandomJoke();
+  });
